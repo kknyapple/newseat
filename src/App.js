@@ -4,6 +4,7 @@ import GlobalStyle from "./style/globalStyle";
 import theme from "./style/theme";
 
 import VideoPage from "./pages/VideoPage";
+import ArticlePage from "./pages/ArticlePage";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<VideoPage />} />
+        <Route path="/article" element={<ArticlePage />} />
       </Routes>
     </ThemeProvider>
   );

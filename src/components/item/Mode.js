@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { categoryState, modeState } from "../../recoil/frontend";
@@ -33,8 +34,16 @@ const Mode = () => {
 
   return (
     <ModeBox onClick={clickHandler}>
-      {(mode === 1 && <Icon src="/images/videoMode.svg" />) ||
-        (mode === 2 && <Icon src="/images/paperMode.svg" />)}
+      {(mode === 1 && (
+        <Link to="/article">
+          <Icon src="/images/videoMode.svg" />
+        </Link>
+      )) ||
+        (mode === 2 && (
+          <Link to="/">
+            <Icon src="/images/paperMode.svg" />
+          </Link>
+        ))}
     </ModeBox>
   );
 };
