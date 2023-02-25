@@ -1,0 +1,18 @@
+import React from "react";
+import styled from "styled-components";
+import Mode from "../components/item/Mode";
+import HeaderComponent from "../components/layout/header/HeaderComponent";
+import VideoComponent from "../components/layout/main/video/VideoComponent";
+import CategoryComponent from "../components/layout/nav/category/CategoryComponent";
+
+const VideoPage = () => {
+  return (
+    <React.Fragment>
+      <HeaderComponent />
+      <CategoryComponent />
+      <Mode />
+    </React.Fragment>
+  );
+};
+
+export default VideoPage;
