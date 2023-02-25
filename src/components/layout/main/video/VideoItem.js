@@ -5,7 +5,7 @@ const Video = styled.div`
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 290px;
+  height: 258px;
   margin-bottom: 20px;
   margin-left: 15px;
   margin-right: 15px;
