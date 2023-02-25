@@ -9,6 +9,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<VideoPage />} />
+      </Routes>
     </ThemeProvider>
   );
 }
