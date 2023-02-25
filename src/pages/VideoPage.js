@@ -16,7 +16,6 @@ const VideoPage = () => {
     <React.Fragment>
       <HeaderComponent />
       <CategoryComponent />
-
       <Main>
         <VideoComponent />
       </Main>
