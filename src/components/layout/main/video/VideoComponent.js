@@ -7,7 +7,7 @@ const VideoBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 670px;
+  width: 700px;
   margin-top: 44px;
 `;
 

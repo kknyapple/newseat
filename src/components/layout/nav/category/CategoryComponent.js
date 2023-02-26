@@ -8,15 +8,9 @@ const NavBox = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 50px;
   background-color: ${(props) => props.theme.color.lightGray};
-  margin-top: 60px;
-`;
-
-const Bar = styled.div`
-  width: 150px;
-  height: 4px;
-  background-color: ${(props) => props.theme.color.main};
+  margin-top: 50px;
 `;
 
 const CategoryComponent = () => {

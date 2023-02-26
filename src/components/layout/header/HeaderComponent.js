@@ -5,7 +5,7 @@ import NavComponent from "../nav/general/NavComponent";
 const Header = styled.header`
   position: fixed;
   background-color: ${(props) => props.theme.color.white};
-  height: 60px;
+  height: 50px;
   width: 100%;
   display: flex;
   top: 0px;
