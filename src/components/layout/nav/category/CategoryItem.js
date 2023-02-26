@@ -10,6 +10,7 @@ const CategoryButton = styled.button`
   font-weight: 700;
   width: 150px;
   height: 60px;
+  position: relative;
 `;
 
 const SelectedCategoryButton = styled.button`
@@ -18,15 +19,18 @@ const SelectedCategoryButton = styled.button`
   cursor: pointer;
   font-weight: 700;
   width: 150px;
-  height: 46px;
+  height: 60px;
+  position: relative;
   // border-bottom: 2px solid #fa9370;
 `;
 
 const Bar = styled.div`
-  position: sticky;
-  width: 150px;
+  position: absolute;
+  z-index: 5;
+  width: 100%;
   height: 3px;
   background-color: ${(props) => props.theme.color.main};
+  margin-top: 13px;
 `;
 
 const Div = styled.div`
@@ -48,8 +52,10 @@ const CategoryItem = (props) => {
     <>
       {category === menu ? (
         <Div>
-          <SelectedCategoryButton>{menu}</SelectedCategoryButton>
-          <Bar />
+          <SelectedCategoryButton>
+            {menu}
+            <Bar />
+          </SelectedCategoryButton>
         </Div>
       ) : (
         <CategoryButton

@@ -9,3 +9,13 @@ export const categoryState = atom({
   key: "category",
   default: "전체",
 });
+
+export const selectedVideoState = atom({
+  key: "selectedVideo",
+  default: null,
+});
+
+export const videoListState = atom({
+  key: "videoList",
+  default: null,
+});
