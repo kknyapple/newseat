@@ -5,6 +5,7 @@ import theme from "./style/theme";
 
 import VideoPage from "./pages/VideoPage";
 import ArticlePage from "./pages/ArticlePage";
+import VideoDetailPage from "./pages/VideoDetailPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<VideoPage />} />
         <Route path="/article" element={<ArticlePage />} />
+        <Route path="/video/detail" element={<VideoDetailPage />} />
       </Routes>
     </ThemeProvider>
   );
