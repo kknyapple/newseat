@@ -18,16 +18,15 @@ const SelectedCategoryButton = styled.button`
   cursor: pointer;
   font-weight: 700;
   width: 150px;
-  height: 50px;
+  height: 46px;
   // border-bottom: 2px solid #fa9370;
 `;
 
 const Bar = styled.div`
-  position: fixed;
+  position: sticky;
   width: 150px;
-  height: 4px;
+  height: 3px;
   background-color: ${(props) => props.theme.color.main};
-  top: 96px;
 `;
 
 const Div = styled.div`
@@ -49,7 +48,7 @@ const CategoryItem = (props) => {
     <>
       {category === menu ? (
         <Div>
-          <CategoryButton>{menu}</CategoryButton>
+          <SelectedCategoryButton>{menu}</SelectedCategoryButton>
           <Bar />
         </Div>
       ) : (
