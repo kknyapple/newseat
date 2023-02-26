@@ -9,6 +9,7 @@ const Header = styled.header`
   width: 100%;
   display: flex;
   top: 0px;
+  z-index: 10;
 `;
 const Logo = styled.img`
   width: 160px;
