@@ -7,7 +7,7 @@ export const modeState = atom({
 
 export const categoryState = atom({
   key: "category",
-  default: "전체",
+  default: "전체", // 전체, KBS, SBS, MBC, JTBC, YTN, 채널A
 });
 
 export const selectedVideoState = atom({

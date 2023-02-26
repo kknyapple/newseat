@@ -32,6 +32,21 @@ const Info = styled.span`
   color: ${(props) => props.theme.color.black};
 `;
 
+const Time = styled.span`
+  font-size: 12px;
+  color: ${(props) => props.theme.color.white};
+  background-color: ${(props) => props.theme.color.black};
+  position: absolute;
+  width: 50px;
+  margin: 162px 0px 0px 270px;
+`;
+
+const Div = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const VideoItem = (props) => {
   const id = props.id;
   const thumbnail = props.thumbnail;
@@ -39,6 +54,7 @@ const VideoItem = (props) => {
   const title = props.title;
   const date = props.date;
   const description = props.description;
+  const duration = props.duration;
 
   const [selectedVideo, setSelectedVideo] = useRecoilState(selectedVideoState);
 
@@ -56,6 +72,9 @@ const VideoItem = (props) => {
     <Link style={{ textDecoration: "none" }} to="/video/detail">
       <Video onClick={clickHandler}>
         <Thumbnail src={thumbnail} />
+        <Time>
+          <Div>{duration}</Div>
+        </Time>
         {title.length < 60 ? (
           <Title>{title}</Title>
         ) : (
