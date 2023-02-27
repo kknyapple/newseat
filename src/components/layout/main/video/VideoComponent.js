@@ -4,6 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { categoryState, videoListState } from "../../../../recoil/frontend";
 import VideoItem from "./VideoItem";
+import { useQuery } from "react-query";
 
 const VideoBox = styled.div`
   display: flex;
@@ -15,11 +16,8 @@ const VideoBox = styled.div`
 `;
 
 const VideoComponent = () => {
-  const [videoList, setVideoList] = useRecoilState(videoListState);
   const [category, setCategory] = useRecoilState(categoryState);
-
   const [videoId, setVideoId] = useState([]);
-  const [allVideoId, setAllVideoId] = useState([]);
 
   const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -87,10 +85,7 @@ const VideoComponent = () => {
 
             copy = [];
           })
-        )
-        .catch(() => {
-          console.log("fail");
-        });
+        );
     } else {
       if (category === "KBS") {
         playlistId = "UUcQTRi69dsVYHN3exePtZ1A";
@@ -134,34 +129,22 @@ const VideoComponent = () => {
     }
   }, [category]);
 
-  useEffect(() => {
-    let id = videoId.join(",");
-    axios
-      .get(
+  const { data: videoList, isLoading: videoListLoading } = useQuery(
+    ["videoList", videoId],
+    () => {
+      let id = videoId.join(",");
+      return axios(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&id=${id}&key=${apiKey}`
-      )
-      .then((res) => {
-        setVideoList(res.data.items);
-      })
-      .catch(() => {
-        console.log("fail");
-      });
-    // console.log(id);
-  }, [videoId, category]);
+      );
+    }
+  );
 
   return (
     <VideoBox>
+      {videoListLoading && <div>loading..</div>}
       {videoList &&
-        videoList.map((video) => (
+        videoList.data.items.map((video) => (
           <VideoItem
-            /*key={video.id}
-            id={video.snippet.resourceId.videoId}
-            thumbnail={video.snippet.thumbnails.medium.url}
-            title={video.snippet.title}
-            channelTitle={video.snippet.channelTitle}
-            date={video.snippet.publishedAt}
-            description={video.snippet.description}*/
-
             key={video.id}
             id={video.id}
             thumbnail={video.snippet.thumbnails.medium.url}
