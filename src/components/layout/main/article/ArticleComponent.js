@@ -137,6 +137,7 @@ const ArticleComponent = () => {
             url={article.url}
             title={article.title}
             date={article.publishedAt}
+            author={article.author}
           />
         ))}
     </ArticleBox>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Article = styled.div`
@@ -24,6 +25,7 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 447px;
+  color: ${(props) => props.theme.color.black};
 `;
 
 const Title = styled.h2`
@@ -42,20 +44,25 @@ const Date = styled.span`
 `;
 
 const ArticleItem = (props) => {
-  const url = props.img;
+  const url = props.url;
   const title = props.title;
   const date = props.date;
   const img = props.img;
+  const author = props.author;
 
   return (
-    <Article>
-      <Img src={img && img} />
-      <Content>
-        <Title>{title}</Title>
-        <Description></Description>
-        <Date>{date} </Date>
-      </Content>
-    </Article>
+    <Link style={{ textDecoration: "none" }} to={url}>
+      <Article>
+        <Img src={img && img} />
+        <Content>
+          <Title>{title}</Title>
+          <Description></Description>
+          <Date>
+            {author} · {date}
+          </Date>
+        </Content>
+      </Article>
+    </Link>
   );
 };
 
