@@ -20,7 +20,7 @@ const HeaderComponent = () => {
   return (
     <Header>
       <Logo src="/images/logo.svg" />
-      <NavComponent />
+      {/* <NavComponent /> */}
     </Header>
   );
 };
