@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Mode from "../components/item/Mode";
+import ArticleMode from "../components/item/ArticleMode";
 import HeaderComponent from "../components/layout/header/HeaderComponent";
 import ArticleComponent from "../components/layout/main/article/ArticleComponent";
-import CategoryComponent from "../components/layout/nav/category/CategoryComponent";
+import ArticleCategoryComponent from "../components/layout/nav/category/ArticleCategoryComponent";
 
 const Main = styled.main`
   width: 100%;
@@ -15,11 +15,11 @@ const ArticlePage = () => {
   return (
     <React.Fragment>
       <HeaderComponent />
-      <CategoryComponent />
+      <ArticleCategoryComponent />
       <Main>
         <ArticleComponent />
       </Main>
-      <Mode />
+      <ArticleMode />
     </React.Fragment>
   );
 };

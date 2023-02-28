@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Mode from "../components/item/Mode";
+import VideoMode from "../components/item/VideoMode";
 import HeaderComponent from "../components/layout/header/HeaderComponent";
 import VideoComponent from "../components/layout/main/video/VideoComponent";
-import CategoryComponent from "../components/layout/nav/category/CategoryComponent";
+import VideoCategoryComponent from "../components/layout/nav/category/VideoCategoryComponent";
 
 const Main = styled.main`
   width: 100%;
@@ -15,11 +15,11 @@ const VideoPage = () => {
   return (
     <React.Fragment>
       <HeaderComponent />
-      <CategoryComponent />
+      <VideoCategoryComponent />
       <Main>
         <VideoComponent />
       </Main>
-      <Mode />
+      <VideoMode />
     </React.Fragment>
   );
 };
