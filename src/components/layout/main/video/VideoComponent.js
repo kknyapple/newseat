@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import axios from "axios";
-import { categoryState, videoListState } from "../../../../recoil/frontend";
+import { categoryState } from "../../../../recoil/frontend";
 import VideoItem from "./VideoItem";
 import { useQuery } from "react-query";
 
@@ -33,11 +33,9 @@ const VideoComponent = () => {
     return array;
   };
 
-  useEffect(() => {
-    let playlistId;
-
+  const { data: allData } = useQuery(["allData", category], () => {
     if (category === "전체") {
-      axios
+      return axios
         .all([
           axios.get(
             `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUcQTRi69dsVYHN3exePtZ1A&maxResults=2&key=${apiKey}`
@@ -87,6 +85,8 @@ const VideoComponent = () => {
           })
         );
     } else {
+      let playlistId;
+
       if (category === "KBS") {
         playlistId = "UUcQTRi69dsVYHN3exePtZ1A";
       }
@@ -127,7 +127,7 @@ const VideoComponent = () => {
           console.log("fail");
         });
     }
-  }, [category]);
+  });
 
   const { data: videoList, isLoading: videoListLoading } = useQuery(
     ["videoList", videoId],

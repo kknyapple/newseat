@@ -14,8 +14,3 @@ export const selectedVideoState = atom({
   key: "selectedVideo",
   default: null,
 });
-
-export const videoListState = atom({
-  key: "videoList",
-  default: null,
-});
