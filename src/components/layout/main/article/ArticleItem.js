@@ -42,17 +42,17 @@ const Date = styled.span`
 `;
 
 const ArticleItem = (props) => {
-  const img = props.img;
+  const url = props.img;
   const title = props.title;
-  const description = props.description;
   const date = props.date;
+  const img = props.img;
 
   return (
     <Article>
-      <Img src="" />
+      <Img src={img && img} />
       <Content>
         <Title>{title}</Title>
-        <Description>{description}</Description>
+        <Description></Description>
         <Date>{date} </Date>
       </Content>
     </Article>
