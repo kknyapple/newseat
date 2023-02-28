@@ -5,6 +5,7 @@ import axios from "axios";
 import { categoryState } from "../../../../recoil/frontend";
 import VideoItem from "./VideoItem";
 import { useQuery } from "react-query";
+import Skeleton from "../../../item/Skeleton";
 
 const VideoBox = styled.div`
   display: flex;
@@ -141,7 +142,7 @@ const VideoComponent = () => {
 
   return (
     <VideoBox>
-      {videoListLoading && <div>loading..</div>}
+      {videoListLoading && [0, 1, 2, 3, 4, 5, 6, 7, 8].map(() => <Skeleton />)}
       {videoList &&
         videoList.data.items.map((video) => (
           <VideoItem
