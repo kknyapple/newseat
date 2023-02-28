@@ -39,22 +39,22 @@ const VideoComponent = () => {
       return axios
         .all([
           axios.get(
-            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUcQTRi69dsVYHN3exePtZ1A&maxResults=2&key=${apiKey}`
+            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUcQTRi69dsVYHN3exePtZ1A&maxResults=6&key=${apiKey}`
           ),
           axios.get(
-            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUkinYTS9IHqOEwR1Sze2JTw&maxResults=2&key=${apiKey}`
+            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUkinYTS9IHqOEwR1Sze2JTw&maxResults=6&key=${apiKey}`
           ),
           axios.get(
-            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUF4Wxdo3inmxP-Y59wXDsFw&maxResults=2&key=${apiKey}`
+            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUF4Wxdo3inmxP-Y59wXDsFw&maxResults=6&key=${apiKey}`
           ),
           axios.get(
-            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUsU-I-vHLiaMfV_ceaYz5rQ&maxResults=2&key=${apiKey}`
+            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUsU-I-vHLiaMfV_ceaYz5rQ&maxResults=6&key=${apiKey}`
           ),
           axios.get(
-            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUhlgI3UHCOnwUGzWzbJ3H5w&maxResults=2&key=${apiKey}`
+            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUhlgI3UHCOnwUGzWzbJ3H5w&maxResults=6&key=${apiKey}`
           ),
           axios.get(
-            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUfq4V1DAuaojnr2ryvWNysw&maxResults=2&key=${apiKey}`
+            `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUfq4V1DAuaojnr2ryvWNysw&maxResults=6&key=${apiKey}`
           ),
         ])
         .then(
@@ -107,14 +107,11 @@ const VideoComponent = () => {
         playlistId = "UUfq4V1DAuaojnr2ryvWNysw";
       }
 
-      axios
+      return axios
         .get(
-          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=12&key=${apiKey}`
+          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=48&key=${apiKey}`
         )
         .then((res) => {
-          //setVideoList(res.data.items);
-
-          // id만 저장하기
           let copy = [];
 
           res.data.items.forEach((item) => {
