@@ -18,7 +18,7 @@
 
 youtube api와 newsapi를 이용해 최근 뉴스를 보여줍니다. 평소 뉴스를 검색하기 귀찮음에서 시작된 프로젝트입니다.
 
-<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/React%20Router-%23CA4245?logo=React-Router&logoColor=white&style=for-the-badge"/> <img src="https://img.shields.io/badge/-React%20Query-FF4154?logo=React-Query&logoColor=white&style=for-the-badge"/>  <img src="https://user-images.githubusercontent.com/72698829/226164770-4da7ea6c-995a-49fe-94af-497195fdd645.png"/> <img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/Typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/> <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white"/>  <img src="https://img.shields.io/badge/-React%20Query-FF4154?logo=React-Query&logoColor=white&style=for-the-badge"/> <img src="https://img.shields.io/badge/React%20Router-%23CA4245?logo=React-Router&logoColor=white&style=for-the-badge"/> <img src="https://user-images.githubusercontent.com/72698829/226164770-4da7ea6c-995a-49fe-94af-497195fdd645.png"/> <img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/> 
 
 ## 사용 예제
 
