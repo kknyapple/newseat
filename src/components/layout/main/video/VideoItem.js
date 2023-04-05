@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { selectedVideoState } from "../../../../recoil/frontend";
@@ -105,7 +105,7 @@ const VideoItem = (props) => {
   }
 
   return (
-    <Link style={{ textDecoration: "none" }} to="/video/detail">
+    <Link style={{ textDecoration: "none" }} to={`/detail/${id}`}>
       <Video onClick={clickHandler}>
         <Thumbnail src={thumbnail} />
         <Time>
