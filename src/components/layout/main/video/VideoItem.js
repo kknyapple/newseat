@@ -68,12 +68,48 @@ const VideoItem = (props) => {
     });
   };
 
+  function formatDuration(duration) {
+    const regex = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/;
+    const matches = regex.exec(duration);
+    const hours = matches && matches[1] ? parseInt(matches[1]) : 0;
+    const minutes = matches && matches[2] ? parseInt(matches[2]) : 0;
+    const seconds = matches && matches[3] ? parseInt(matches[3]) : 0;
+    if (hours === 0) {
+      return `${minutes.toString().padStart(2, "0")}:${seconds
+        .toString()
+        .padStart(2, "0")}`;
+    } else if (hours < 10) {
+      return `${hours.toString()}:${minutes
+        .toString()
+        .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    } else {
+      return `${hours.toString().padStart(2, "0")}:${minutes
+        .toString()
+        .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    }
+  }
+
+  function convertUTCToKST(utcDate) {
+    const date = new Date(utcDate);
+    const kstTime = date.getTime();
+    const kstDate = new Date(kstTime);
+
+    const year = kstDate.getFullYear().toString().padStart(4, "0");
+    const month = (kstDate.getMonth() + 1).toString().padStart(2, "0");
+    const day = kstDate.getDate().toString().padStart(2, "0");
+    const hours = kstDate.getHours().toString().padStart(2, "0");
+    const minutes = kstDate.getMinutes().toString().padStart(2, "0");
+    const seconds = kstDate.getSeconds().toString().padStart(2, "0");
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  }
+
   return (
     <Link style={{ textDecoration: "none" }} to="/video/detail">
       <Video onClick={clickHandler}>
         <Thumbnail src={thumbnail} />
         <Time>
-          <Div>{duration}</Div>
+          <Div>{formatDuration(duration)}</Div>
         </Time>
         {title.length < 60 ? (
           <Title>{title}</Title>
@@ -82,7 +118,7 @@ const VideoItem = (props) => {
         )}
 
         <Info>
-          {channelTitle} · {date}
+          {channelTitle} · {convertUTCToKST(date)}
         </Info>
       </Video>
     </Link>
