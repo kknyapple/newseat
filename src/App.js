@@ -13,8 +13,9 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<VideoPage />} />
+        <Route path="/video/:videoId" element={<VideoPage />} />
         <Route path="/article" element={<ArticlePage />} />
-        <Route path="/video/detail" element={<VideoDetailPage />} />
+        <Route path="/detail/:detailId" element={<VideoDetailPage />} />
       </Routes>
     </ThemeProvider>
   );

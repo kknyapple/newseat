@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CategoryItem from "./CategoryItem";
+import { Link } from "react-router-dom";
 
 const NavBox = styled.nav`
   display: flex;
@@ -46,7 +47,9 @@ const VideoCategoryComponent = () => {
   return (
     <NavBox>
       {VideoMenu.map(({ name, link }) => (
-        <CategoryItem key={name} menu={name} link={link} />
+        <Link style={{ textDecoration: "none" }} to={`${link}`}>
+          <CategoryItem key={name} menu={name} link={link} />
+        </Link>
       ))}
     </NavBox>
   );

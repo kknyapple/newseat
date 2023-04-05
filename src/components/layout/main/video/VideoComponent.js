@@ -6,6 +6,8 @@ import { categoryState } from "../../../../recoil/frontend";
 import VideoItem from "./VideoItem";
 import { useQuery } from "react-query";
 import Skeleton from "../../../item/Skeleton";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const VideoBox = styled.div`
   display: flex;
@@ -21,6 +23,10 @@ const VideoComponent = () => {
   const [videoId, setVideoId] = useState([]);
 
   const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+
+  const params = useParams();
+
+  let videoInfo = params.videoId;
 
   const shuffleArray = (sourceArr) => {
     const array = sourceArr.concat();
@@ -88,22 +94,22 @@ const VideoComponent = () => {
     } else {
       let playlistId;
 
-      if (category === "KBS") {
+      if (videoInfo === "kbs") {
         playlistId = "UUcQTRi69dsVYHN3exePtZ1A";
       }
-      if (category === "SBS") {
+      if (videoInfo === "sbs") {
         playlistId = "UUkinYTS9IHqOEwR1Sze2JTw";
       }
-      if (category === "MBC") {
+      if (videoInfo === "mbc") {
         playlistId = "UUF4Wxdo3inmxP-Y59wXDsFw";
       }
-      if (category === "JTBC") {
+      if (videoInfo === "jtbc") {
         playlistId = "UUsU-I-vHLiaMfV_ceaYz5rQ";
       }
-      if (category === "YTN") {
+      if (videoInfo === "ytn") {
         playlistId = "UUhlgI3UHCOnwUGzWzbJ3H5w";
       }
-      if (category === "채널A") {
+      if (videoInfo === "channelA") {
         playlistId = "UUfq4V1DAuaojnr2ryvWNysw";
       }
 

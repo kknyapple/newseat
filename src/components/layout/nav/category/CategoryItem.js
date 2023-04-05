@@ -2,6 +2,8 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { categoryState } from "../../../../recoil/frontend";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 const CategoryButton = styled.button`
   background-color: transparent;
@@ -47,6 +49,13 @@ const CategoryItem = (props) => {
   const selectHandler = (name) => {
     setCategory(name);
   };
+
+  let location = useLocation();
+  useEffect(() => {
+    if (location.pathname.includes(`${link}`)) {
+      setCategory(`${menu}`);
+    }
+  }, [location]);
 
   return (
     <>
