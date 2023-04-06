@@ -28,7 +28,7 @@ const VideoComponent = () => {
 
   let videoInfo = params.videoId;
 
-  const shuffleArray = (sourceArr) => {
+  /* const shuffleArray = (sourceArr) => {
     const array = sourceArr.concat();
     // 피셔 예이츠 알고리즘
     const arrayLength = array.length;
@@ -38,10 +38,42 @@ const VideoComponent = () => {
     }
 
     return array;
-  };
+  }; */
 
   const { data: allData } = useQuery(["allData", category], () => {
-    if (category === "전체") {
+    let playlistId;
+
+    if (videoInfo) {
+      if (videoInfo === "kbs") {
+        playlistId = "UUcQTRi69dsVYHN3exePtZ1A";
+      } else if (videoInfo === "sbs") {
+        playlistId = "UUkinYTS9IHqOEwR1Sze2JTw";
+      } else if (videoInfo === "mbc") {
+        playlistId = "UUF4Wxdo3inmxP-Y59wXDsFw";
+      } else if (videoInfo === "jtbc") {
+        playlistId = "UUsU-I-vHLiaMfV_ceaYz5rQ";
+      } else if (videoInfo === "ytn") {
+        playlistId = "UUhlgI3UHCOnwUGzWzbJ3H5w";
+      } else if (videoInfo === "channelA") {
+        playlistId = "UUfq4V1DAuaojnr2ryvWNysw";
+      }
+
+      return axios
+        .get(
+          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=48&key=${apiKey}`
+        )
+        .then((res) => {
+          let copy = [];
+
+          copy = res.data.items.map((item) => item.snippet.resourceId.videoId);
+          setVideoId(copy);
+
+          copy = [];
+        })
+        .catch(() => {
+          console.log("fail");
+        });
+    } else {
       return axios
         .all([
           axios.get(
@@ -82,54 +114,20 @@ const VideoComponent = () => {
 
             let copy = [];
 
-            res.forEach((item) => {
-              copy.push(item.snippet.resourceId.videoId);
+            res.sort((a, b) => {
+              return (
+                new Date(b.snippet.publishedAt) -
+                new Date(a.snippet.publishedAt)
+              );
             });
 
-            setVideoId(shuffleArray(copy));
+            copy = res.map((item) => item.snippet.resourceId.videoId);
+
+            setVideoId(copy);
 
             copy = [];
           })
         );
-    } else {
-      let playlistId;
-
-      if (videoInfo === "kbs") {
-        playlistId = "UUcQTRi69dsVYHN3exePtZ1A";
-      }
-      if (videoInfo === "sbs") {
-        playlistId = "UUkinYTS9IHqOEwR1Sze2JTw";
-      }
-      if (videoInfo === "mbc") {
-        playlistId = "UUF4Wxdo3inmxP-Y59wXDsFw";
-      }
-      if (videoInfo === "jtbc") {
-        playlistId = "UUsU-I-vHLiaMfV_ceaYz5rQ";
-      }
-      if (videoInfo === "ytn") {
-        playlistId = "UUhlgI3UHCOnwUGzWzbJ3H5w";
-      }
-      if (videoInfo === "channelA") {
-        playlistId = "UUfq4V1DAuaojnr2ryvWNysw";
-      }
-
-      return axios
-        .get(
-          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=48&key=${apiKey}`
-        )
-        .then((res) => {
-          let copy = [];
-
-          res.data.items.forEach((item) => {
-            copy.push(item.snippet.resourceId.videoId);
-
-            setVideoId(copy);
-          });
-          copy = [];
-        })
-        .catch(() => {
-          console.log("fail");
-        });
     }
   });
 
