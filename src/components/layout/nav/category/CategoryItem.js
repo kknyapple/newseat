@@ -13,6 +13,7 @@ const CategoryButton = styled.button`
   width: 150px;
   height: 60px;
   position: relative;
+  padding: 0px;
 `;
 
 const SelectedCategoryButton = styled.button`
@@ -24,6 +25,7 @@ const SelectedCategoryButton = styled.button`
   height: 60px;
   position: relative;
   // border-bottom: 2px solid #fa9370;
+  padding: 0px;
 `;
 
 const Bar = styled.div`
@@ -38,6 +40,7 @@ const Bar = styled.div`
 const Div = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 const CategoryItem = (props) => {

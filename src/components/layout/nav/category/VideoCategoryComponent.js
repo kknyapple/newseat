@@ -10,6 +10,7 @@ const NavBox = styled.nav`
   height: 50px;
   background-color: ${(props) => props.theme.color.lightGray};
   margin-top: 50px;
+  width: 100%;
 `;
 
 const VideoCategoryComponent = () => {
