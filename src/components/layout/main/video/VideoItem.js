@@ -18,6 +18,7 @@ const Thumbnail = styled.img`
   width: 320px;
   height: 180px;
   background-color: ${(props) => props.theme.color.lightGray};
+  border-radius: 15px;
 `;
 
 const Title = styled.h2`
@@ -38,7 +39,8 @@ const Time = styled.span`
   background-color: ${(props) => props.theme.color.black};
   position: absolute;
   width: 50px;
-  margin: 162px 0px 0px 270px;
+  margin: 152px 0px 0px 260px;
+  border-radius: 6px;
 `;
 
 const Div = styled.div`
