@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavComponent from "../nav/general/NavComponent";
+import { Link } from "react-router-dom";
 
 const Header = styled.header`
   position: fixed;
@@ -8,6 +9,8 @@ const Header = styled.header`
   height: 50px;
   width: 100%;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   top: 0px;
   z-index: 10;
 `;
@@ -19,7 +22,9 @@ const Logo = styled.img`
 const HeaderComponent = () => {
   return (
     <Header>
-      <Logo src="/images/logo.svg" />
+      <Link style={{ textDecoration: "none" }} to={`/`}>
+        <Logo src="/images/logo.svg" />
+      </Link>
       <NavComponent />
     </Header>
   );
