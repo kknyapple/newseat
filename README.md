@@ -18,9 +18,13 @@ youtube api와 newsapi를 이용해 최근 뉴스를 보여줍니다. 평소 뉴
 ## 사용 예제
 
 ### 1️. 유튜브 영상으로 채널 별 뉴스 시청 (kbs, sbs, mbc, jtbc, ytn, 채널a)
-![유뷰브영상](https://user-images.githubusercontent.com/72698829/225744003-d5bcb27e-6345-40f6-b6c7-a020e4f5a7d7.gif)
+![image](https://github.com/kknyapple/newseat/assets/72698829/ad3f2403-a9ac-4859-b981-b9a87b0b2b74)
+
+![image](https://github.com/kknyapple/newseat/assets/72698829/13a025d5-e0ed-4e48-9b8e-e5e75fb49f81)
+
 kbs, sbs, mbc, jtbc, ytn, 채널a 채널에서 동영상을 클릭하면 youtube 동영상을 재생하고 확인할 수 있습니다. (메뉴 마다 최근 24개 확인 )
 
 ### 2️. 카테고리 별 인터넷 기사 확인
-![기사카테고리](https://user-images.githubusercontent.com/72698829/225738793-05dac1bd-ff83-465b-bc44-5375629024cd.gif)
+![image](https://github.com/kknyapple/newseat/assets/72698829/dd5644b3-fb16-4b53-9085-55dac15980a6)
+
 카테고리 별로 기사를 클릭 시 인터넷 기사를 확인할 수 있습니다.
